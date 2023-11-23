@@ -10,6 +10,10 @@ namespace AutoTanpopo
     internal enum SwpFlags : uint
     {
         /// <summary>
+        /// Default value, represents no operation.
+        /// </summary>
+        None,
+        /// <summary>
         /// If the calling thread and the thread that owns the window are attached to different input queues, the system posts the request to the thread that owns the window.
         /// This prevents the calling thread from blocking its execution while other threads process the request.
         /// </summary>

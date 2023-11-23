@@ -16,16 +16,29 @@ namespace AutoTanpopo
         /// <param name="hWnd">A handle to the window.</param>
         /// <param name="width">Window width.</param>
         /// <param name="height">Window height.</param>
+        /// <param name="doCenterResize">Resize based on center of window or not.</param>
         /// <param name="doActivate">Activate window on resize or not.</param>
-        /// <exception cref="Win32Exception">Thrown when <see cref="NativeMethods.SetWindowPos"/> is failed.</exception>
-        public static void SetWindowSize(IntPtr hWnd, int width, int height, bool doActivate = true)
+        /// <exception cref="Win32Exception">Thrown when <see cref="NativeMethods.GetWindowRect"/>
+        /// or <see cref="NativeMethods.SetWindowPos"/> is failed.</exception>
+        public static void SetWindowSize(IntPtr hWnd, int width, int height, bool doCenterResize = true, bool doActivate = true)
         {
+            var x = 0;
+            var y = 0;
             var flags = SwpFlags.NoMove;
+            if (doCenterResize)
+            {
+                var windowRect = GetWindowRect(hWnd);
+                x = windowRect.Left + (windowRect.Width - width) / 2;
+                y = windowRect.Top + (windowRect.Height - height) / 2;
+                flags = SwpFlags.None;
+            }
+
             if (!doActivate)
             {
                 flags |= SwpFlags.NoActivate;
             }
-            if (!NativeMethods.SetWindowPos(hWnd, IntPtr.Zero, 0, 0, width, height, flags))
+
+            if (!NativeMethods.SetWindowPos(hWnd, IntPtr.Zero, x, y, width, height, flags))
             {
                 throw new Win32Exception(Marshal.GetLastWin32Error(), "SetWindowPos failed");
             }
@@ -37,29 +50,33 @@ namespace AutoTanpopo
         /// <param name="hWnd">A handle to the window.</param>
         /// <param name="width">Window width.</param>
         /// <param name="height">Window height.</param>
+        /// <param name="doCenterResize">Resize based on center of window or not.</param>
         /// <param name="doActivate">Activate window on resize or not.</param>
         /// <exception cref="Win32Exception">Thrown when <see cref="NativeMethods.GetWindowRect"/>,
         /// <see cref="NativeMethods.GetClientRect"/> or <see cref="NativeMethods.SetWindowPos"/> is failed.</exception>
-        public static void SetClientSize(IntPtr hWnd, int width, int height, bool doActivate = true)
+        public static void SetClientSize(IntPtr hWnd, int width, int height, bool doCenterResize = true, bool doActivate = true)
         {
+            var windowRect = GetWindowRect(hWnd);
+            var clientRect = GetClientRect(hWnd);
+            var windowWidth = width + windowRect.Width - clientRect.Width;
+            var windowHeight = height + windowRect.Height - clientRect.Height;
+
+            var x = 0;
+            var y = 0;
             var flags = SwpFlags.NoMove;
+            if (doCenterResize)
+            {
+                x = windowRect.Left + (windowRect.Width - windowWidth) / 2;
+                y = windowRect.Top + (windowRect.Height - windowHeight) / 2;
+                flags = SwpFlags.None;
+            }
+
             if (!doActivate)
             {
                 flags |= SwpFlags.NoActivate;
             }
 
-            var windowRect = GetWindowRect(hWnd);
-            var clientRect = GetClientRect(hWnd);
-
-            var result = NativeMethods.SetWindowPos(
-                hWnd,
-                IntPtr.Zero,
-                0,
-                0,
-                width + windowRect.Width - clientRect.Width,
-                height + windowRect.Height - clientRect.Height,
-                flags);
-            if (!result)
+            if (!NativeMethods.SetWindowPos(hWnd, IntPtr.Zero, x, y, windowWidth, windowHeight, flags))
             {
                 throw new Win32Exception(Marshal.GetLastWin32Error(), "SetWindowPos failed");
             }
