@@ -1,0 +1,106 @@
+﻿<Window x:Class="AutoTanpopo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+        xmlns:local="clr-namespace:AutoTanpopo"
+        mc:Ignorable="d"
+        Title="AutoTanpopo" Closing="Window_Closing" Width="332" Height="305">
+    <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Margin="3,3,3,3">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="386*"/>
+            <ColumnDefinition Width="65*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label x:Name="_labelStatus" Content="Inactive" FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <GroupBox Header="Config" Grid.Row="1">
+            <Grid Margin="3,3,3,3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="Hot Key" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0"/>
+                <ComboBox x:Name="_cbHotKey" SelectedIndex="9" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" SelectionChanged="ComboBox_SelectionChanged">
+                    <ComboBoxItem>F2</ComboBoxItem>
+                    <ComboBoxItem>F3</ComboBoxItem>
+                    <ComboBoxItem>F4</ComboBoxItem>
+                    <ComboBoxItem>F5</ComboBoxItem>
+                    <ComboBoxItem>F6</ComboBoxItem>
+                    <ComboBoxItem>F7</ComboBoxItem>
+                    <ComboBoxItem>F8</ComboBoxItem>
+                    <ComboBoxItem>F9</ComboBoxItem>
+                    <ComboBoxItem>F10</ComboBoxItem>
+                    <ComboBoxItem>F11</ComboBoxItem>
+                </ComboBox>
+                <Label Content="Framerate" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"/>
+                <WindowsFormsHost Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,3,0,3">
+                    <wf:NumericUpDown x:Name="_nudFramerate" Increment="1" Minimum="1" Maximum="144" Value="60"/>
+                </WindowsFormsHost>
+
+                <Label Content="Offset" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"/>
+                <Label Content="X:" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1"/>
+                <WindowsFormsHost Grid.Row="2" Grid.Column="2" Margin="0,3,0,3">
+                    <wf:NumericUpDown x:Name="_nudOffsetX" Increment="1" Minimum="-7680" Maximum="7680" Value="-700"/>
+                </WindowsFormsHost>
+                <Label Content="Y:" VerticalAlignment="Center" Grid.Row="2" Grid.Column="3"/>
+                <WindowsFormsHost Grid.Row="2" Grid.Column="4" Margin="0,3,0,3">
+                    <wf:NumericUpDown x:Name="_nudOffsetY" Increment="1" Minimum="-7680" Maximum="7680" Value="-200"/>
+                </WindowsFormsHost>
+            </Grid>
+        </GroupBox>
+        <GroupBox Grid.Row="2">
+            <GroupBox.Header>
+                <CheckBox x:Name="_cbResize" Content="Enable resizing"/>
+            </GroupBox.Header>
+            <Grid Grid.Row="1" Margin="3,3,3,3" IsEnabled="{Binding ElementName=_cbResize,Path=IsChecked}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <RadioButton x:Name="_rbWindowBased" Content="Window Based" Grid.Row="0" Grid.Column="0" GroupName="ResizeBase" VerticalAlignment="Center"/>
+                <Label Content="Width:" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Margin="0,3,0,3"/>
+                <WindowsFormsHost IsEnabled="{Binding ElementName=_rbWindowBased,Path=IsChecked}" Grid.Row="0" Grid.Column="2" Margin="0,3,0,3">
+                    <wf:NumericUpDown x:Name="_nudWindowWidth" Increment="1" Minimum="8" Maximum="7680" Value="128"/>
+                </WindowsFormsHost>
+                <Label Content="Height:" Grid.Row="0" Grid.Column="3" VerticalAlignment="Center" Margin="0,3,0,3"/>
+                <WindowsFormsHost IsEnabled="{Binding ElementName=_rbWindowBased,Path=IsChecked}" Grid.Row="0" Grid.Column="4" Margin="0,3,0,3">
+                    <wf:NumericUpDown x:Name="_nudWindowHeight" Increment="1" Minimum="8" Maximum="4320" Value="72"/>
+                </WindowsFormsHost>
+
+                <RadioButton x:Name="_rbClientBased" Content="Client Based" Grid.Row="1" Grid.Column="0" GroupName="ResizeBase" VerticalAlignment="Center" IsChecked="true"/>
+                <Label Content="Width:" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="0,3,0,3"/>
+                <WindowsFormsHost IsEnabled="{Binding ElementName=_rbClientBased,Path=IsChecked}" Grid.Row="1" Grid.Column="2" Margin="0,3,0,3">
+                    <wf:NumericUpDown x:Name="_nudClientWidth" Increment="1" Minimum="8" Maximum="7680" Value="128"/>
+                </WindowsFormsHost>
+                <Label Content="Height:" Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" Margin="0,3,0,3"/>
+                <WindowsFormsHost IsEnabled="{Binding ElementName=_rbClientBased,Path=IsChecked}" Grid.Row="1" Grid.Column="4" Margin="0,3,0,3">
+                    <wf:NumericUpDown x:Name="_nudClientHeight" Increment="1" Minimum="8" Maximum="4320" Value="72"/>
+                </WindowsFormsHost>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>
