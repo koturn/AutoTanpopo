@@ -97,7 +97,7 @@ namespace AutoTanpopo
                 _task = Task.Factory.StartNew(
                     () =>
                     {
-                        const int Interval = 1500;
+                        const int SashimiInterval = 1500;
 
                         var cts = _cts;
                         if (cts == null)
@@ -122,8 +122,6 @@ namespace AutoTanpopo
                             Thread.Sleep(16 * 8);
                         }
 
-                        var intervalMs = (int)(1000.0 / (double)framerate);
-
                         var mouseInputs = new[]
                         {
                             new []
@@ -146,26 +144,23 @@ namespace AutoTanpopo
                             }
                         };
 
+                        var frameInterval = (int)Math.Round(1000.0 / framerate);
+                        var grabInterval = Math.Min(100, frameInterval * 2);
+
                         var sleepTimes = new[]
                         {
-                            (int)Math.Round(Interval / 24.0),
-                            (int)Math.Round(Interval / 24.0),
-                            (int)Math.Round(Interval * (10.0 / 12.0)),
-                            (int)Math.Round(Interval / 12.0),
+                            grabInterval,
+                            grabInterval,
+                            SashimiInterval - grabInterval * 4,
+                            grabInterval * 2
                         };
-                        var sw = new Stopwatch();
+
                         while (!cts.IsCancellationRequested)
                         {
-                            sw.Restart();
                             for (int i = 0; i < mouseInputs.Length; i++)
                             {
                                 InputUtil.SendInput(mouseInputs[i]);
                                 Thread.Sleep(sleepTimes[i]);
-                            }
-                            var sleepTime = 1500 - sw.ElapsedMilliseconds;
-                            if (sleepTime > 0)
-                            {
-                                Thread.Sleep((int)sleepTime);
                             }
                         }
 
