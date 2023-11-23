@@ -6,7 +6,7 @@
         xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
         xmlns:local="clr-namespace:AutoTanpopo"
         mc:Ignorable="d"
-        Title="AutoTanpopo" Closing="Window_Closing" Width="332" Height="305">
+        Title="AutoTanpopo" Closing="Window_Closing" Width="346" Height="338" Loaded="Window_Loaded">
     <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Margin="3,3,3,3">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -72,6 +72,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -81,23 +82,27 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <RadioButton x:Name="_rbWindowBased" Content="Window Based" Grid.Row="0" Grid.Column="0" GroupName="ResizeBase" VerticalAlignment="Center"/>
-                <Label Content="Width:" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Margin="0,3,0,3"/>
-                <WindowsFormsHost IsEnabled="{Binding ElementName=_rbWindowBased,Path=IsChecked}" Grid.Row="0" Grid.Column="2" Margin="0,3,0,3">
+                <Label Content="VRChat Process ID:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="0,3,0,3"/>
+                <ComboBox x:Name="_cbVRChatProcess" DisplayMemberPath="Id" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,3,0,3"/>
+                <Button Content="Refresh" Margin="0,3,0,3" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click"/>
+
+                <RadioButton x:Name="_rbWindowBased" Content="Window Based" Grid.Row="1" Grid.Column="0" GroupName="ResizeBase" VerticalAlignment="Center"/>
+                <Label Content="Width:" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="0,3,0,3"/>
+                <WindowsFormsHost IsEnabled="{Binding ElementName=_rbWindowBased,Path=IsChecked}" Grid.Row="1" Grid.Column="2" Margin="0,3,0,3">
                     <wf:NumericUpDown x:Name="_nudWindowWidth" Increment="1" Minimum="8" Maximum="7680" Value="128"/>
                 </WindowsFormsHost>
-                <Label Content="Height:" Grid.Row="0" Grid.Column="3" VerticalAlignment="Center" Margin="0,3,0,3"/>
-                <WindowsFormsHost IsEnabled="{Binding ElementName=_rbWindowBased,Path=IsChecked}" Grid.Row="0" Grid.Column="4" Margin="0,3,0,3">
+                <Label Content="Height:" Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" Margin="0,3,0,3"/>
+                <WindowsFormsHost IsEnabled="{Binding ElementName=_rbWindowBased,Path=IsChecked}" Grid.Row="1" Grid.Column="4" Margin="0,3,0,3">
                     <wf:NumericUpDown x:Name="_nudWindowHeight" Increment="1" Minimum="8" Maximum="4320" Value="72"/>
                 </WindowsFormsHost>
 
-                <RadioButton x:Name="_rbClientBased" Content="Client Based" Grid.Row="1" Grid.Column="0" GroupName="ResizeBase" VerticalAlignment="Center" IsChecked="true"/>
-                <Label Content="Width:" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="0,3,0,3"/>
-                <WindowsFormsHost IsEnabled="{Binding ElementName=_rbClientBased,Path=IsChecked}" Grid.Row="1" Grid.Column="2" Margin="0,3,0,3">
+                <RadioButton x:Name="_rbClientBased" Content="Client Based" Grid.Row="2" Grid.Column="0" GroupName="ResizeBase" VerticalAlignment="Center" IsChecked="true"/>
+                <Label Content="Width:" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Margin="0,3,0,3"/>
+                <WindowsFormsHost IsEnabled="{Binding ElementName=_rbClientBased,Path=IsChecked}" Grid.Row="2" Grid.Column="2" Margin="0,3,0,3">
                     <wf:NumericUpDown x:Name="_nudClientWidth" Increment="1" Minimum="8" Maximum="7680" Value="128"/>
                 </WindowsFormsHost>
-                <Label Content="Height:" Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" Margin="0,3,0,3"/>
-                <WindowsFormsHost IsEnabled="{Binding ElementName=_rbClientBased,Path=IsChecked}" Grid.Row="1" Grid.Column="4" Margin="0,3,0,3">
+                <Label Content="Height:" Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" Margin="0,3,0,3"/>
+                <WindowsFormsHost IsEnabled="{Binding ElementName=_rbClientBased,Path=IsChecked}" Grid.Row="2" Grid.Column="4" Margin="0,3,0,3">
                     <wf:NumericUpDown x:Name="_nudClientHeight" Increment="1" Minimum="8" Maximum="4320" Value="72"/>
                 </WindowsFormsHost>
             </Grid>

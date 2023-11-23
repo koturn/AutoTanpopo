@@ -85,7 +85,6 @@ namespace AutoTanpopo
             }
             else
             {
-                var doResize = _cbResize.IsChecked.GetValueOrDefault();
                 var isClientBasedResize = _rbClientBased.IsChecked.GetValueOrDefault();
                 var windowWidth = (int)_nudWindowWidth.Value;
                 var windowHeight = (int)_nudWindowHeight.Value;
@@ -94,6 +93,7 @@ namespace AutoTanpopo
                 var offsetX = (int)_nudOffsetX.Value;
                 var offsetY = (int)_nudOffsetY.Value;
                 var framerate = (int)_nudFramerate.Value;
+                var process = _cbResize.IsChecked.GetValueOrDefault() ? (Process)_cbVRChatProcess.SelectedItem : null;
                 _task = Task.Factory.StartNew(
                     () =>
                     {
@@ -105,13 +105,10 @@ namespace AutoTanpopo
                             return;
                         }
 
-                        var procs = Process.GetProcessesByName("VRChat");
-                        var p = procs.Length > 0 ? procs[0] : null;
-
                         var prevWinRect = default(WindowRect);
-                        if (doResize && p != null)
+                        if (process != null)
                         {
-                            var hWnd = p.MainWindowHandle;
+                            var hWnd = process.MainWindowHandle;
                             prevWinRect = WindowUtil.GetWindowRect(hWnd);
                             if (isClientBasedResize)
                             {
@@ -172,12 +169,12 @@ namespace AutoTanpopo
                             }
                         }
 
-                        if (doResize && p != null)
+                        if (process != null)
                         {
-                            p.Refresh();
-                            if (!p.HasExited && p.MainWindowHandle != IntPtr.Zero)
+                            process.Refresh();
+                            if (!process.HasExited && process.MainWindowHandle != IntPtr.Zero)
                             {
-                                WindowUtil.SetWindowSize(p.MainWindowHandle, prevWinRect.Width, prevWinRect.Height);
+                                WindowUtil.SetWindowSize(process.MainWindowHandle, prevWinRect.Width, prevWinRect.Height);
                             }
                         }
                     },
@@ -190,6 +187,16 @@ namespace AutoTanpopo
                 Topmost = true;
                 Topmost = false;
             }
+        }
+
+        /// <summary>
+        /// Refresh VRChat process ID combobox, <see cref="_cbVRChatProcess"/>.
+        /// </summary>
+        /// <param name="sender">The source of the event (this).</param>
+        /// <param name="e"><see cref="RoutedEventArgs"/> that contains the event data.</param>
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            RefreshProcessComboBox();
         }
 
         /// <summary>
@@ -229,6 +236,33 @@ namespace AutoTanpopo
             }
 
             _hotKeyId = id;
+        }
+
+        /// <summary>
+        /// Refresh VRChat process ID combobox, <see cref="_cbVRChatProcess"/>.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e"><see cref="RoutedEventArgs"/> that contains the event data.</param>
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            RefreshProcessComboBox();
+        }
+
+        /// <summary>
+        /// Refresh items of <see cref="_cbVRChatProcess"/>.
+        /// </summary>
+        private void RefreshProcessComboBox()
+        {
+            var items = _cbVRChatProcess.Items;
+            items.Clear();
+            foreach (var p in Process.GetProcessesByName("VRChat"))
+            {
+                items.Add(p);
+            }
+            if (items.Count > 0)
+            {
+                _cbVRChatProcess.SelectedIndex = 0;
+            }
         }
     }
 }
