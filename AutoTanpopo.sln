@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.4.33213.308
+VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTanpopo", "AutoTanpopo\AutoTanpopo.csproj", "{B709E44A-7418-435F-B533-FB29BBCAF60B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTanpopo", "AutoTanpopo\AutoTanpopo.csproj", "{14921C37-2C90-41CD-B8F5-E6F3C5C502DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B709E44A-7418-435F-B533-FB29BBCAF60B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B709E44A-7418-435F-B533-FB29BBCAF60B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B709E44A-7418-435F-B533-FB29BBCAF60B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B709E44A-7418-435F-B533-FB29BBCAF60B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14921C37-2C90-41CD-B8F5-E6F3C5C502DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14921C37-2C90-41CD-B8F5-E6F3C5C502DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14921C37-2C90-41CD-B8F5-E6F3C5C502DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14921C37-2C90-41CD-B8F5-E6F3C5C502DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {0927787A-BAAB-487B-8A2A-148F203CCC5D}
+		SolutionGuid = {43C44301-25C1-4C49-A4BD-97D9CFE8178D}
 	EndGlobalSection
 EndGlobal
