@@ -213,7 +213,11 @@ namespace AutoTanpopo
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var selectedText = (string)((ComboBoxItem)((ComboBox)sender).SelectedItem).Content;
+#if NET5_0_OR_GREATER || NETCOREAPP2_0_OR_GREATER || NETSTANDARD2_1_OR_GREATER
             var hotKey = Enum.Parse<System.Windows.Forms.Keys>(selectedText);
+#else
+            var hotKey = (System.Windows.Forms.Keys)Enum.Parse(typeof(System.Windows.Forms.Keys), selectedText);
+#endif
             var hWnd = _interopHelper.EnsureHandle();
 
             HotKeyManager.Unregister(hWnd, _hotKeyId);
