@@ -6,7 +6,7 @@
         xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
         xmlns:local="clr-namespace:AutoTanpopo"
         mc:Ignorable="d"
-        Title="AutoTanpopo" Closing="Window_Closing" Width="346" Height="338" Loaded="Window_Loaded">
+        Title="AutoTanpopo" Closing="Window_Closing" Width="346" Height="372" Loaded="Window_Loaded">
     <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Margin="3,3,3,3">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -23,6 +23,7 @@
         <GroupBox Header="Config" Grid.Row="1">
             <Grid Margin="3,3,3,3">
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -48,19 +49,25 @@
                     <ComboBoxItem>F10</ComboBoxItem>
                     <ComboBoxItem>F11</ComboBoxItem>
                 </ComboBox>
-                <Label Content="Framerate" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"/>
+
+                <Label Content="Sashimi Cycle" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"/>
                 <WindowsFormsHost Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,3,0,3">
+                    <wf:NumericUpDown x:Name="_nudCycle" Increment="1" Minimum="1450" Maximum="1550" Value="1495"/>
+                </WindowsFormsHost>
+
+                <Label Content="Framerate" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"/>
+                <WindowsFormsHost Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,3,0,3">
                     <wf:NumericUpDown x:Name="_nudFramerate" Increment="1" Minimum="1" Maximum="144" Value="60"/>
                 </WindowsFormsHost>
 
-                <Label Content="Offset" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"/>
-                <Label Content="X:" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1"/>
-                <WindowsFormsHost Grid.Row="2" Grid.Column="2" Margin="0,3,0,3">
+                <Label Content="Offset" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0"/>
+                <Label Content="X:" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1"/>
+                <WindowsFormsHost Grid.Row="3" Grid.Column="2" Margin="0,3,0,3">
                     <wf:NumericUpDown x:Name="_nudOffsetX" Increment="1" Minimum="-7680" Maximum="7680" Value="-700"/>
                 </WindowsFormsHost>
-                <Label Content="Y:" VerticalAlignment="Center" Grid.Row="2" Grid.Column="3"/>
-                <WindowsFormsHost Grid.Row="2" Grid.Column="4" Margin="0,3,0,3">
-                    <wf:NumericUpDown x:Name="_nudOffsetY" Increment="1" Minimum="-7680" Maximum="7680" Value="-200"/>
+                <Label Content="Y:" VerticalAlignment="Center" Grid.Row="3" Grid.Column="3"/>
+                <WindowsFormsHost Grid.Row="3" Grid.Column="4" Margin="0,3,0,3">
+                    <wf:NumericUpDown x:Name="_nudOffsetY" Increment="1" Minimum="-7680" Maximum="7680" Value="-1000"/>
                 </WindowsFormsHost>
             </Grid>
         </GroupBox>

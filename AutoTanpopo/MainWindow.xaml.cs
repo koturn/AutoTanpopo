@@ -92,13 +92,12 @@ namespace AutoTanpopo
                 var clientHeight = (int)_nudClientHeight.Value;
                 var offsetX = (int)_nudOffsetX.Value;
                 var offsetY = (int)_nudOffsetY.Value;
+                var sashimiCycle = (int)_nudCycle.Value;
                 var framerate = (int)_nudFramerate.Value;
                 var process = _cbResize.IsChecked.GetValueOrDefault() ? (Process)_cbVRChatProcess.SelectedItem : null;
                 _task = Task.Factory.StartNew(
                     () =>
                     {
-                        const int SashimiInterval = 1500;
-
                         var cts = _cts;
                         if (cts == null)
                         {
@@ -151,7 +150,7 @@ namespace AutoTanpopo
                         {
                             grabInterval,
                             grabInterval,
-                            SashimiInterval - grabInterval * 4,
+                            sashimiCycle - grabInterval * 4,
                             grabInterval * 2
                         };
 
