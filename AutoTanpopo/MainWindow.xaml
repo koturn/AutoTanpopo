@@ -6,7 +6,8 @@
         xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
         xmlns:local="clr-namespace:AutoTanpopo"
         mc:Ignorable="d"
-        Title="AutoTanpopo" Closing="Window_Closing" Width="346" Height="372" Loaded="Window_Loaded">
+        Title="AutoTanpopo" Width="Auto" Height="Auto" SizeToContent="WidthAndHeight" ResizeMode="NoResize"
+        Loaded="Window_Loaded" Closing="Window_Closing">
     <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Margin="3,3,3,3">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
