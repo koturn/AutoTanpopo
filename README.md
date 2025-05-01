@@ -1,6 +1,10 @@
 AutoTanpopo
 ===========
 
+[![.NET](https://github.com/koturn/AutoTanpopo/actions/workflows/dotnet.yml/badge.svg?branch=main)](https://github.com/koturn/AutoTanpopo/actions/workflows/dotnet.yml)
+
+[![Build status](https://ci.appveyor.com/api/projects/status/9grod4bxqp8obc9x/branch/main?svg=true)](https://ci.appveyor.com/project/koturn/autotanpopo/branch/main)
+
 Automated mouse manipulation application to [paste "Tanpopo" (dandelion) on "Sashimi" (sliced raw fish) in VRChat](https://booth.pm/ja/items/3183508 "yUdonChips‘Î‰zhg‚É‚½‚ñ‚Û‚Û‚ğæ‚¹‚éƒMƒ~ƒbƒN - Tomentosa Repository - BOOTH").
 
 ## Others
