@@ -222,9 +222,8 @@ namespace AutoTanpopo
 #endif
             var hWnd = _interopHelper.EnsureHandle();
 
-            HotKeyManager.Unregister(hWnd, _hotKeyId);
-            var id = HotKeyManager.Register(hWnd, hotKey);
-            if (id == -1)
+            HotKeyManager.TryUnregister(hWnd, _hotKeyId);
+            if (!HotKeyManager.TryRegister(hWnd, hotKey, out var id))
             {
                 MessageBox.Show(
                     this,
