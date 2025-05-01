@@ -9,6 +9,14 @@ The tanpopo icon is from the following website.
 
 [タンポポのシルエット | 無料のAi・PNG白黒シルエットイラスト](https://www.silhouette-illust.com/illust/38583 "タンポポのシルエット | 無料のAi・PNG白黒シルエットイラスト")
 
+## Depedent Libraries
+
+The following libraries are managed as submodules.
+
+- [koturn/Koturn.Windows.AppWindows](https://github.com/koturn/Koturn.Windows.AppWindows "koturn/Koturn.Windows.AppWindows")
+- [koturn/Koturn.Windows.HotKeys](https://github.com/koturn/Koturn.Windows.HotKeys "koturn/Koturn.Windows.HotKeys")
+- [koturn/Koturn.Windows.Inputs](https://github.com/koturn/Koturn.Windows.Inputs "koturn/Koturn.Windows.Inputs")
+
 ## LICENSE
 
 This software is released under the MIT License, see [LICENSE](LICENSE "LICENSE").

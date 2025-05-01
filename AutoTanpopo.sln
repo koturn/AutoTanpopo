@@ -5,6 +5,12 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTanpopo", "AutoTanpopo\AutoTanpopo.csproj", "{B709E44A-7418-435F-B533-FB29BBCAF60B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Koturn.Windows.AppWindows", "Koturn.Windows.AppWindows\Koturn.Windows.AppWindows\Koturn.Windows.AppWindows.csproj", "{E8449CC2-466F-E73A-B5D9-A939E79B3F1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Koturn.Windows.HotKeys", "Koturn.Windows.HotKeys\Koturn.Windows.HotKeys\Koturn.Windows.HotKeys.csproj", "{2FFD2684-A0E7-E54F-AC20-41A6B8FDA0D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Koturn.Windows.Inputs", "Koturn.Windows.Inputs\Koturn.Windows.Inputs\Koturn.Windows.Inputs.csproj", "{FF41E8E9-6B24-7771-0607-FF612653FA36}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{B709E44A-7418-435F-B533-FB29BBCAF60B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B709E44A-7418-435F-B533-FB29BBCAF60B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B709E44A-7418-435F-B533-FB29BBCAF60B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8449CC2-466F-E73A-B5D9-A939E79B3F1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8449CC2-466F-E73A-B5D9-A939E79B3F1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8449CC2-466F-E73A-B5D9-A939E79B3F1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8449CC2-466F-E73A-B5D9-A939E79B3F1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FFD2684-A0E7-E54F-AC20-41A6B8FDA0D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FFD2684-A0E7-E54F-AC20-41A6B8FDA0D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FFD2684-A0E7-E54F-AC20-41A6B8FDA0D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FFD2684-A0E7-E54F-AC20-41A6B8FDA0D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF41E8E9-6B24-7771-0607-FF612653FA36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF41E8E9-6B24-7771-0607-FF612653FA36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF41E8E9-6B24-7771-0607-FF612653FA36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF41E8E9-6B24-7771-0607-FF612653FA36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

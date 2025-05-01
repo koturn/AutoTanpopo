@@ -1,0 +1,9 @@
+[submodule "Koturn.Windows.Inputs"]
+	path = Koturn.Windows.Inputs
+	url = https://github.com/koturn/Koturn.Windows.Inputs
+[submodule "Koturn.Windows.HotKeys"]
+	path = Koturn.Windows.HotKeys
+	url = https://github.com/koturn/Koturn.Windows.HotKeys
+[submodule "Koturn.Windows.AppWindows"]
+	path = Koturn.Windows.AppWindows
+	url = https://github.com/koturn/Koturn.Windows.AppWindows

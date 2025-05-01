@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Interop;
-using AutoTanpopo.Inputs;
+using Koturn.Windows.AppWindows;
+using Koturn.Windows.HotKeys;
+using Koturn.Windows.Inputs;
 
 
 namespace AutoTanpopo
@@ -117,7 +119,7 @@ namespace AutoTanpopo
                             {
                                 WindowUtil.SetWindowSize(hWnd, windowWidth, windowHeight);
                             }
-                            WindowUtil.NativeMethods.SetForegroundWindow(hWnd);
+                            WindowUtil.SetForegroundWindow(hWnd);
                             Thread.Sleep(16 * 8);
                         }
 
@@ -214,9 +216,9 @@ namespace AutoTanpopo
         {
             var selectedText = (string)((ComboBoxItem)((ComboBox)sender).SelectedItem).Content;
 #if NET5_0_OR_GREATER || NETCOREAPP2_0_OR_GREATER || NETSTANDARD2_1_OR_GREATER
-            var hotKey = Enum.Parse<System.Windows.Forms.Keys>(selectedText);
+            var hotKey = Enum.Parse<Keys>(selectedText);
 #else
-            var hotKey = (System.Windows.Forms.Keys)Enum.Parse(typeof(System.Windows.Forms.Keys), selectedText);
+            var hotKey = (Keys)Enum.Parse(typeof(Keys), selectedText);
 #endif
             var hWnd = _interopHelper.EnsureHandle();
 

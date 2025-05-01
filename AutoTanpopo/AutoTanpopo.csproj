@@ -43,4 +43,10 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Koturn.Windows.AppWindows\Koturn.Windows.AppWindows\Koturn.Windows.AppWindows.csproj" />
+    <ProjectReference Include="..\Koturn.Windows.HotKeys\Koturn.Windows.HotKeys\Koturn.Windows.HotKeys.csproj" />
+    <ProjectReference Include="..\Koturn.Windows.Inputs\Koturn.Windows.Inputs\Koturn.Windows.Inputs.csproj" />
+  </ItemGroup>
+
 </Project>
