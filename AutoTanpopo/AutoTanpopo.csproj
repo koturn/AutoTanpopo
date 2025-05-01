@@ -11,7 +11,7 @@
     <LangVersion>13</LangVersion>
     <EnableDefaultApplicationDefinition>false</EnableDefaultApplicationDefinition>
     <Title>AutoTanpopo</Title>
-    <Version>0.1.0</Version>
+    <Version>1.0.0</Version>
     <Authors>koturn</Authors>
     <Copyright>Copyright (C) 2023 koturn All Rights Reserverd.</Copyright>
     <Description>An application to automatically place dandelions in VRChat.</Description>
