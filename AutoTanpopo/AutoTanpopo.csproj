@@ -2,30 +2,23 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows7.0</TargetFramework>
-    <Nullable>enable</Nullable>
+    <TargetFrameworks>net8.0-windows;net481</TargetFrameworks>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon>Resources\tanpopo.ico</ApplicationIcon>
+    <Nullable>enable</Nullable>
+    <WarningLevel>8</WarningLevel>
+    <LangVersion>13</LangVersion>
     <EnableDefaultApplicationDefinition>false</EnableDefaultApplicationDefinition>
-    <GenerateDocumentationFile>False</GenerateDocumentationFile>
-    <PackageProjectUrl>https://github.com/koturn/AutoTanpopo</PackageProjectUrl>
+    <Title>AutoTanpopo</Title>
+    <Version>0.1.0</Version>
+    <Authors>koturn</Authors>
     <Copyright>Copyright (C) 2023 koturn All Rights Reserverd.</Copyright>
     <Description>An application to automatically place dandelions in VRChat.</Description>
-    <Authors>koturn</Authors>
+    <PackageProjectUrl>https://github.com/koturn/AutoTanpopo</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageTags>WPF;VRChat;Win32API</PackageTags>
-    <AssemblyVersion></AssemblyVersion>
-    <Version>0.1.0</Version>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <ApplicationIcon>Resources\tanpopo.ico</ApplicationIcon>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <WarningLevel>7</WarningLevel>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <WarningLevel>7</WarningLevel>
   </PropertyGroup>
 
   <ItemGroup>
