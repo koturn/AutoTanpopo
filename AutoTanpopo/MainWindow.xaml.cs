@@ -123,26 +123,22 @@ namespace AutoTanpopo
                             Thread.Sleep(16 * 8);
                         }
 
-                        var mouseInputs = new[]
+                        var mouseInputs = new Input[][]
                         {
-                            new []
-                            {
+                            [
                                 Input.CreateMouseInput(MouseEventFlags.LeftDown),
                                 Input.CreateMouseInput(MouseEventFlags.Move, 0, offsetY)
-                            },
-                            new []
-                            {
+                            ],
+                            [
                                 Input.CreateMouseInput(MouseEventFlags.Move, offsetX, 0)
-                            },
-                            new []
-                            {
+                            ],
+                            [
                                 Input.CreateMouseInput(MouseEventFlags.Move, 0, -offsetY)
-                            },
-                            new []
-                            {
+                            ],
+                            [
                                 Input.CreateMouseInput(MouseEventFlags.LeftUp),
                                 Input.CreateMouseInput(MouseEventFlags.Move, -offsetX)
-                            }
+                            ]
                         };
 
                         var frameInterval = (int)Math.Round(1000.0 / framerate);
