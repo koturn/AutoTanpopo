@@ -75,10 +75,7 @@ namespace AutoTanpopo
                 _labelStatus.Content = "Stopping...";
                 _labelStatus.Foreground = System.Windows.Media.Brushes.Black;
                 Title = "AutoTanpopo: Stopping...";
-                if (_cts != null)
-                {
-                    _cts.Cancel();
-                }
+                _cts?.Cancel();
                 await _task;
                 _labelStatus.Content = "Inactive";
                 _labelStatus.Foreground = System.Windows.Media.Brushes.Black;
