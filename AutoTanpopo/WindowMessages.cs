@@ -1,4 +1,4 @@
-﻿namespace AutoTanpopo
+namespace AutoTanpopo
 {
     /// <summary>
     /// Window message ID constants.
